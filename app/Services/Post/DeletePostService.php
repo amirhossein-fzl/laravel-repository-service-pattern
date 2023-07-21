@@ -2,11 +2,11 @@
 
 namespace App\Services\Post;
 use App\Models\Post;
-use App\Repositories\PostRepository;
+use App\Repositories\Interfaces\IPostRepository;
 
 class DeletePostService
 {
-    public function __construct(public PostRepository $postRepository) {}
+    public function __construct(public IPostRepository $postRepository) {}
 
     public function delete(Post $post): bool {
         return $this->postRepository->deletePost($post);
